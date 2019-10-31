@@ -1,7 +1,7 @@
 {
-  "name": "kss-node-twig-builder",
-  "version": "3.0.0",
-  "description": "The Twig.js builder for kss-node.",
+  "name": "@atolye15/kss-node-twig-builder",
+  "version": "1.0.0",
+  "description": "The Twig.js builder for kss-node that used by Atölye15.",
   "main": "builder.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
