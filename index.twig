@@ -13,9 +13,13 @@
 </head>
 <body id="kss-node" {% if template.isItem %}class="kss-fullscreen-mode"{% endif %}>
 
-{% if is_file_exists("../../../styleguide/kss-assets/sprite.svg") %}
+{% set sprite %}
+  {%- include '../../../styleguide/kss-assets/sprite.svg' ignore missing -%}
+{% endset %}
+
+{% if sprite is not empty %}
   <div hidden>
-    {% include "../../../styleguide/kss-assets/sprite.svg" %}
+    {{ sprite }}
   </div>
 {% endif %}
 
