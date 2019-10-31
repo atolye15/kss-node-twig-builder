@@ -3,11 +3,11 @@
 ## Getting Started
 
 ```sh
-npm install @atolye15/kss-node-twig-builder
+npm install @atolye15/kss-node-twig-builder -D
 ```
 
 or
 
 ```sh
-yarn add @atolye15/kss-node-twig-builder
+yarn add @atolye15/kss-node-twig-builder -D
 ```
