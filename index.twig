@@ -150,18 +150,22 @@
 
         {% if section.colors %}
           <ul class="kss-colors">
-            {% kssColors section.colors %}
-              <li class="kss-colors__item">
-                <div class="kss-colors__demo" style="background-color:{{color.hex}}"></div>
-                <div class="kss-colors__info">
-                  <p class="kss-colors__name">{{ color.name }}</p>
-                  <p class="kss-colors__hex">{{ color.hex }}</p>
-                  <p class="kss-colors__rgb">rgb({{ color.rgb.r }}, {{ color.rgb.g }}, {{ color.rgb.b }})</p>
-                  <p class="kss-colors__hsl">hsl({{ color.hsl.h }}, {{ color.hsl.s }}, {{ color.hsl.l }})</p>
-                  <p class="kss-colors__description">{{ color.description|raw }}</p>
-                </div>
+            {% for color in section.colors %}
+              <li>
+                <figure class="kss-color">
+                  <div class="kss-color-figure" style="background-color:{{ color.color }}"></div>
+                  <figcaption class="kss-color-caption">
+                    {% if color.name %}
+                      <strong class="kss-color-name">{{ color.name }}</strong>
+                    {% endif %}
+                    <code class="kss-color-code">{{ color.color }}</code>
+                    {% if color.description %}
+                      <p class="kss-color-desc">{{ color.description }}</p>
+                    {% endif %}
+                  </figcaption>
+                </figure>
               </li>
-            {% endkssColors %}
+            {% endfor %}
           </ul>
         {% endif %}
 
