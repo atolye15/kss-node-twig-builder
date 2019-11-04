@@ -13,13 +13,10 @@
 </head>
 <body id="kss-node" {% if template.isItem %}class="kss-fullscreen-mode"{% endif %}>
 
-{% set sprite %}
-  {%- include '../../../styleguide/kss-assets/sprite.svg' ignore missing -%}
-{% endset %}
 
-{% if sprite is not empty %}
+{% if options.svgSprite %}
   <div hidden>
-    {{ sprite }}
+    {{ options.svgSprite|raw }}
   </div>
 {% endif %}
 
