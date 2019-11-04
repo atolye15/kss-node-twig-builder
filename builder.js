@@ -16,6 +16,8 @@
  * @module kss/builder/twig
  */
 
+const path = require('path');
+
 // We want to extend kss-node's Twig builder so we can add options that
 // are used in our templates.
 let KssBuilderBaseTwig;
@@ -39,42 +41,32 @@ try {
  * A kss-node builder that takes input files and builds a style guide using Twig
  * templates.
  */
-// class KssBuilderTwig extends KssBuilderBaseTwig {
-//   /**
-//    * Create a builder object.
-//    */
-//   constructor() {
-//     // First call the constructor of KssBuilderBaseTwig.
-//     super();
+class KssBuilderTwig extends KssBuilderBaseTwig {
+  /**
+   * Create a builder object.
+   */
+  constructor() {
+    // First call the constructor of KssBuilderBaseTwig.
+    super();
 
-//     // Then tell kss which Yargs-like options this builder adds.
-//     this.addOptionDefinitions({
-//       title: {
-//         group: 'Style guide:',
-//         string: true,
-//         multiple: false,
-//         describe: 'Title of the style guide',
-//         default: 'KSS Style Guide',
-//       },
-//     });
-//   }
-// }
+    // Then tell kss which Yargs-like options this builder adds.
+    this.addOptionDefinitions({
+      title: {
+        group: 'Style guide:',
+        string: true,
+        multiple: false,
+        describe: 'Title of the style guide',
+        default: 'KSS Style Guide',
+      },
+    });
+  }
 
-// module.exports = KssBuilderTwig;
+  // add builder extend
+  prepareExtend(templateEngine) {
+    this.options.extend.push(path.resolve(__dirname, 'extend'));
 
-/* eslint-disable func-names */
-module.exports = function() {
-  const builder = new KssBuilderBaseTwig();
+    return super.prepareExtend(templateEngine);
+  }
+}
 
-  builder.addOptionDefinitions({
-    title: {
-      group: 'Style guide:',
-      string: true,
-      multiple: false,
-      describe: 'Title of the style guide',
-      default: 'KSS Style Guide',
-    },
-  });
-
-  return builder;
-};
+module.exports = KssBuilderTwig;

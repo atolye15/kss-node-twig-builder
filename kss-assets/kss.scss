@@ -12,8 +12,9 @@ $kss-colors-link-visited: #0645ad;
 $kss-colors-link-hover: lighten($kss-colors-link, 20%);
 $kss-colors-link-active: #faa700;
 
-$kss-font-body: Helvetica, 'Helvetica Neue', Arial, sans-serif;
-$kss-font-code: Menlo, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace;
+$kss-font-body: Helvetica, "Helvetica Neue", Arial, sans-serif;
+$kss-font-code: Menlo, "Ubuntu Mono", "Lucida Console", "Courier New", Courier,
+  monospace;
 
 $kss-font-size: 16px;
 $kss-vertical-rhythm: $kss-font-size * 1.5;
@@ -31,8 +32,8 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   a {
     color: $kss-colors-link;
     text-decoration: none;
-    transition-duration: 0.5s;
     transition-property: color;
+    transition-duration: 0.5s;
 
     &:visited {
       color: $kss-colors-link-visited;
@@ -62,8 +63,8 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   h5,
   h6 {
     margin: $kss-vertical-rhythm 0 0 0;
-    color: $kss-colors-heading;
     font-family: $kss-font-body;
+    color: $kss-colors-heading;
     line-height: 1.15em;
   }
 
@@ -93,64 +94,54 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   }
 
   blockquote {
-    padding-left: $kss-vertical-rhythm;
-    border-left: 0.5em mix($kss-colors-quotes, $kss-colors-background, 25%) solid;
-    margin: 0;
     color: $kss-colors-quotes;
+    margin: 0;
+    padding-left: $kss-vertical-rhythm;
+    border-left: 0.5em mix($kss-colors-quotes, $kss-colors-background, 25%)
+      solid;
   }
 
   hr {
     display: block;
     height: 2px;
-    padding: 0;
     border: 0;
     border-top: 1px solid lighten($kss-colors-foreground, 60%);
     border-bottom: 1px solid darken($kss-colors-background, 10%);
     margin: $kss-vertical-rhythm 0;
+    padding: 0;
   }
 
   pre,
   code,
   kbd,
   samp {
-    background-color: rgba(27, 31, 35, 0.05);
-    border-radius: 3px;
-    color: mix($kss-colors-foreground, $kss-colors-heading, 50%);
     font-family: $kss-font-code;
-  }
-
-  code {
-    padding: 0.2em 0.4em;
-    font-size: 85%;
+    color: mix($kss-colors-foreground, $kss-colors-heading, 50%);
+    font-size: 1em;
   }
 
   pre {
-    overflow: scroll;
-    padding: 24px;
     white-space: pre;
-
-    code {
-      background-color: transparent;
-    }
+    overflow: scroll;
   }
 
   ins {
-    background: #ff9;
     color: $kss-colors-heading;
+    background: #ff9;
     text-decoration: none;
   }
 
   mark {
-    background: #ff0;
     color: $kss-colors-heading;
+    background: #ff0;
     font-weight: bold;
   }
 
   sub,
   sup {
-    position: relative;
     font-size: 75%;
     line-height: 0;
+    position: relative;
     vertical-align: baseline;
   }
   sup {
@@ -162,8 +153,8 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
 
   ul,
   ol {
-    padding: 0 0 0 $kss-vertical-rhythm;
     margin: $kss-vertical-rhythm 0;
+    padding: 0 0 0 $kss-vertical-rhythm;
   }
   li p:last-child {
     margin: 0;
@@ -198,19 +189,19 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
       border-bottom: 1px solid black;
     }
     a[href]:after {
-      content: ' (' attr(href) ')';
+      content: " (" attr(href) ")";
     }
-    a[href^='javascript:']:after,
-    a[href^='#']:after {
-      content: '';
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+      content: "";
     }
     abbr[title]:after {
-      content: ' (' attr(title) ')';
+      content: " (" attr(title) ")";
     }
     pre,
     blockquote {
-      padding-right: 1em;
       border: 1px solid #999;
+      padding-right: 1em;
       page-break-inside: avoid;
     }
     tr,
@@ -238,8 +229,8 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
 // ------------------------------------------------------------------------------
 
 #kss-node {
-  padding: 20px;
   margin: 0;
+  padding: 20px;
   background: #fff;
 
   &.kss-fullscreen-mode {
@@ -250,14 +241,25 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
     }
   }
 
+  @media screen and (min-width: 769px) {
+    padding: 0;
+
+    .kss-main,
+    .kss-sidebar {
+      float: left;
+      margin-right: -100%;
+      box-sizing: border-box;
+    }
+  }
+
   .kss-main {
     width: 100%;
     margin: 0 auto;
 
     @media screen and (min-width: 769px) {
       width: 80%;
-      padding: 0 20px 0 30px;
       margin-left: 20%;
+      padding: 0 20px 0 30px;
     }
   }
 
@@ -266,9 +268,9 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
 
     @media screen and (min-width: 769px) {
       position: fixed;
-      overflow: auto;
       width: 20%;
       height: 100%;
+      overflow: auto;
       padding: 0 10px 0 20px;
       border-bottom: 0;
       background-image: url(noise-low.png), -ms-radial-gradient(#fff, #eee);
@@ -276,17 +278,6 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
       background-image: url(noise-low.png), -webkit-radial-gradient(#fff, #eee);
       background-image: url(noise-low.png), radial-gradient(#fff, #eee);
       box-shadow: inset -10px 0 10px -10px rgba(0, 0, 0, 0.7);
-    }
-  }
-
-  @media screen and (min-width: 769px) {
-    padding: 0;
-
-    .kss-main,
-    .kss-sidebar {
-      box-sizing: border-box;
-      margin-right: -100%;
-      float: left;
     }
   }
 }
@@ -312,9 +303,9 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   }
 
   .kss-nav__menu {
-    padding: 0;
     margin-top: ($kss-vertical-rhythm/2);
     margin-bottom: ($kss-vertical-rhythm/2);
+    padding: 0;
     list-style-type: none;
   }
 
@@ -334,18 +325,18 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
 
     &:before {
       @media screen and (min-width: 769px) {
+        content: " ";
         position: absolute;
         left: -20px;
         width: 0;
         height: 100%;
         background-color: rgba(#000, 0);
-        content: ' ';
       }
     }
 
     &.is-in-viewport:before {
-      width: 5px;
       background-color: #000;
+      width: 5px;
       transition: background-color 0.4s, width 0.6s;
     }
   }
@@ -355,22 +346,22 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
 
     @media screen and (min-width: 769px) {
       display: block;
-      padding: 0;
-      margin: 0;
       list-style-type: none;
+      margin: 0;
+      padding: 0;
 
       // @TODO: The ul is output even when there are no children. Fix this, so
       // we can put these :first-child and :last child styles back on the ul.
       li:first-child {
-        padding: 10px 0 0;
-        border-top: 1px solid #ccc;
         margin-top: 10px;
+        border-top: 1px solid #ccc;
+        padding: 10px 0 0;
       }
 
       li:last-child {
-        padding: 0 0 10px;
-        border-bottom: 1px solid #ccc;
         margin-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+        padding: 0 0 10px;
       }
     }
   }
@@ -380,7 +371,7 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
     font-weight: bold;
 
     &:after {
-      content: ' ';
+      content: " ";
     }
   }
   .kss-nav__ref-child {
@@ -400,22 +391,22 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
     &.is-fullscreen {
       position: fixed !important;
       top: 0 !important;
+      left: 0 !important;
       right: 0 !important;
       bottom: 0 !important;
-      left: 0 !important;
-      // Turn on scrolling if needed.
-      overflow: auto !important;
       width: 100% !important;
+      height: 100% !important;
+      margin: 0 !important;
       min-width: 0 !important;
       max-width: none !important;
-      height: 100% !important;
       min-height: 0 !important;
       max-height: none !important;
       box-sizing: border-box !important;
-      padding: 20px;
-      margin: 0 !important;
       object-fit: contain !important;
       transform: none !important;
+      // Turn on scrolling if needed.
+      overflow: auto !important;
+      padding: 20px;
     }
   }
 
@@ -427,12 +418,12 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   }
   .kss-title__ref {
     display: block;
-    color: #666;
     font-size: $kss-font-size;
     line-height: $kss-font-size;
+    color: #666;
 
     &:before {
-      content: 'Section ';
+      content: "Section ";
     }
   }
   .kss-title__permalink {
@@ -458,25 +449,25 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   }
 
   .kss-toolbar {
-    display: inline-block;
-    padding: 3px;
-    border: 1px solid #eee;
     margin: 6px 0 24px;
+    display: inline-block;
+    border: 1px solid #eee;
     background-color: #f9f9f9;
-    border-bottom-color: #e0e0e0;
     border-right-color: #e0e0e0;
+    border-bottom-color: #e0e0e0;
     line-height: 1;
+    padding: 3px;
 
     a {
-      // Tooltip wrapper styles:
-      position: relative;
+      box-sizing: content-box;
       display: inline-block;
-      overflow: visible;
       width: 16px;
       height: 16px;
-      box-sizing: content-box;
       padding: 3px;
       vertical-align: top;
+      // Tooltip wrapper styles:
+      position: relative;
+      overflow: visible;
 
       + a {
         margin-left: 6px;
@@ -503,38 +494,38 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   .kss-toolbar__tooltip {
     position: absolute;
     z-index: 1;
+    display: inline-block;
     bottom: 100%;
     left: -10px;
-    display: inline-block;
-    overflow: hidden;
-    width: 1px;
-    // Visually hidden
-    height: 1px;
-    padding: 8px 10px 6px;
-    border: solid 1px #666;
     margin-bottom: 5px;
-    background: #fff;
+    border: solid 1px #666;
+    padding: 8px 10px 6px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
     color: #000;
+    background: #fff;
     cursor: help;
     opacity: 0;
     transition: opacity 0.25s;
-    white-space: nowrap;
+    // Visually hidden
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
     word-wrap: normal;
 
     // Solid grey triangle.
     &:before,
     &:after {
+      content: "";
       position: absolute;
       bottom: -8px;
       left: 15px;
       width: 0;
       height: 0;
+      border-width: 7px 5px 0;
       border-color: #666 transparent;
       border-style: solid;
-      border-width: 7px 5px 0;
-      content: '';
     }
 
     // White triangle knock-out.
@@ -546,19 +537,19 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   a:focus,
   a:hover {
     > .kss-toolbar__tooltip {
-      overflow: visible;
-      width: auto;
-      height: auto;
+      opacity: 1;
       // Visually hidden off
       clip: auto;
-      opacity: 1;
+      height: auto;
+      width: auto;
+      overflow: visible;
     }
   }
   .is-fullscreen .kss-toolbar a[data-kss-fullscreen],
   &.kss-guides-mode .kss-toolbar a[data-kss-guides],
   &.kss-markup-mode .kss-toolbar a[data-kss-markup] {
-    background-color: #666;
     border-color: #666;
+    background-color: #666;
 
     .kss-toolbar__icon-fill {
       fill: #fff;
@@ -575,10 +566,10 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
 
   .kss-parameters {
     display: table;
-    padding-left: 0;
+    list-style-type: none;
     margin-top: 0;
     margin-left: 0;
-    list-style-type: none;
+    padding-left: 0;
   }
   .kss-parameters__title {
     font-weight: bold;
@@ -599,40 +590,40 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   }
 
   .kss-modifier__wrapper {
-    padding: 0 10px 10px;
     border: 1px solid #ccc;
+    padding: 0 10px 10px;
   }
   .is-fullscreen .kss-modifier__wrapper {
-    padding-right: 0;
-    // Remove all padding on the wrapper
-    padding-left: 0;
-    border: none;
-    margin-right: -20px;
     // Un-do padding on .kss-section.
     margin-left: -20px;
+    margin-right: -20px;
+    // Remove all padding on the wrapper
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
   }
   .kss-modifier__heading {
+    margin: 0 -10px 10px -10px;
     padding: 10px;
     border-bottom: 1px solid #ccc;
-    margin: 0 -10px 10px -10px;
     background-color: #eee;
     font-weight: bold;
   }
   .is-fullscreen .kss-modifier__heading {
-    border: 1px solid #ccc;
     margin: 0 20px 10px;
+    border: 1px solid #ccc;
   }
   .kss-modifier__default-name {
-    margin-bottom: ($kss-vertical-rhythm / 2);
     font-weight: bold;
+    margin-bottom: ($kss-vertical-rhythm / 2);
   }
   .is-fullscreen .kss-modifier__default-name {
-    margin-right: 20px;
     margin-left: 20px;
+    margin-right: 20px;
   }
   .kss-modifier__name {
-    padding-right: 10px;
     float: left;
+    padding-right: 10px;
     font-weight: bold;
   }
   .is-fullscreen .kss-modifier__name {
@@ -645,11 +636,11 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
     margin-right: 20px;
   }
   .kss-modifier__example {
+    clear: left;
+    border: 2px dashed transparent;
     position: relative; // Contain the example's absolute positioning.
     z-index: 0; // Establishes a local stacking context.
-    border: 2px dashed transparent;
     margin: -2px -2px ($kss-vertical-rhythm - 2px);
-    clear: left;
     transform: translate3d(0, 0, 0);
 
     &:last-child {
@@ -660,13 +651,13 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   &.kss-guides-mode .kss-modifier__example-footer {
     &:before,
     &:after {
-      position: absolute;
       z-index: -1;
+      box-sizing: border-box;
+      content: "";
+      position: absolute;
       width: 5px;
       height: 5px;
-      box-sizing: border-box;
       border: 2px solid #000;
-      content: '';
     }
   }
   &.kss-guides-mode .kss-modifier__example {
@@ -687,8 +678,8 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   }
   &.kss-guides-mode.kss-fullscreen-mode .kss-modifier__example {
     &:before {
-      right: 0;
       left: auto;
+      right: 0;
     }
     &:after {
       right: auto;
@@ -706,16 +697,16 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
       border-left: 0;
     }
     &:after {
-      right: -5px;
       bottom: -5px;
+      right: -5px;
       border-right: 0;
       border-bottom: 0;
     }
   }
   &.kss-guides-mode.kss-fullscreen-mode .kss-modifier__example-footer {
     &:before {
-      right: 0;
       left: auto;
+      right: 0;
     }
     &:after {
       right: auto;
@@ -724,12 +715,11 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   }
 
   .kss-markup {
-    border: 1px solid #ccc;
     margin: $kss-vertical-rhythm 0;
+    border: 1px solid #ccc;
 
     &[open] summary {
       border-bottom: 1px solid #ccc;
-      margin-bottom: 3px;
     }
 
     summary {
@@ -741,6 +731,41 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
     }
   }
 
+  .kss-colors {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .kss-color {
+    padding: 1px;
+    background: $kss-colors-background;
+    border: 1px solid #ccc;
+
+    &-figure {
+      height: 3em;
+    }
+
+    &-caption {
+      padding: 0.5em;
+    }
+
+    &-name {
+      display: block;
+      font-weight: bold;
+      color: $kss-colors-foreground;
+    }
+
+    &-code {
+      display: block;
+      color: $kss-colors-quotes;
+    }
+
+    &-desc {
+      font-size: 0.875em;
+    }
+  }
+
   .kss-source {
     font-size: 80%;
   }
@@ -748,241 +773,115 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   .kss-github {
     display: none;
 
-    img {
-      border: 0;
-    }
-
     @media screen and (min-width: 501px) {
+      display: block;
       position: absolute;
       top: 0;
       right: 0;
-      display: block;
+    }
+
+    img {
+      border: 0;
     }
   }
 
-  // ------------------------------------------------------------------------------
-  // prettify.js styles
-  // ------------------------------------------------------------------------------
-
-  /* SPAN elements with the classes below are added by prettyprint. */
-  .pln {
-    color: #000;
-  } /* plain text */
-
-  .str {
-    color: #080;
-  } /* string content */
-  .kwd {
-    color: #008;
-  } /* a keyword */
-  .com {
-    color: #800;
-  } /* a comment */
-  .typ {
-    color: #606;
-  } /* a type name */
-  .lit {
-    color: #066;
-  } /* a literal value */
-  /* punctuation, lisp open bracket, lisp close bracket */
-  .pun,
-  .opn,
-  .clo {
-    color: #660;
-  }
-  .tag {
-    color: #008;
-  } /* a markup tag name */
-  .atn {
-    color: #606;
-  } /* a markup attribute name */
-  .atv {
-    color: #080;
-  } /* a markup attribute value */
-  .dec,
-  .var {
-    color: #606;
-  } /* a declaration; a variable name */
-  .fun {
-    color: red;
-  } /* a function name */
-
-  /* Specify class=linenums on a pre to get line numbering */
-  ol.linenums {
-    padding: 0 0 3px;
-    margin: 0;
-    list-style-type: none;
-
-    li {
-      min-height: $kss-vertical-rhythm;
-      padding: 0 10px;
-      border-bottom: 1px solid #eee;
-      background: #fff;
-
-      &:first-child {
-        padding-top: 3px;
-      }
-    }
-    /* Alternate shading for lines */
-    li.L0,
-    li.L2,
-    li.L4,
-    li.L6,
-    li.L8 {
-      background: #fcfcfc;
-    }
+  pre.hljs code {
+    color: inherit;
   }
 
-  /* Use higher contrast and text-weight for printable form. */
-  @media print, projection {
-    .str {
-      color: #060;
-    }
-    .kwd {
-      color: #006;
-      font-weight: bold;
-    }
-    .com {
-      color: #600;
-      font-style: italic;
-    }
-    .typ {
-      color: #404;
-      font-weight: bold;
-    }
-    .lit {
-      color: #044;
-    }
-    .pun,
-    .opn,
-    .clo {
-      color: #440;
-    }
-    .tag {
-      color: #006;
-      font-weight: bold;
-    }
-    .atn {
-      color: #404;
-    }
-    .atv {
-      color: #060;
-    }
-  }
-}
+  @import "../node_modules/highlight.js/styles/vs2015";
 
-.kss-colors {
-  padding: 0;
-  margin-top: 24px;
-  margin-right: -15px;
-  margin-left: -15px;
-  list-style: none;
+  .kss-colors {
+    padding: 0;
+    margin-top: 24px;
+    margin-right: -15px;
+    margin-left: -15px;
+    list-style: none;
 
-  &__item {
-    display: inline-block;
-    overflow: hidden;
-    width: 33%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-bottom: 0.75em;
-  }
-
-  &__demo {
-    width: 100px;
-    height: 100px;
-    border: 1px solid #d5dbe0;
-    border-radius: 3px;
-    float: left;
-  }
-
-  &__info {
-    margin-left: 120px;
-  }
-
-  &__name {
-    color: #2c2f33;
-    font-weight: bold;
-
-    .kss-colors__info > & {
-      margin-top: 0;
+    &__item {
+      display: inline-block;
+      overflow: hidden;
+      width: 33%;
+      padding-right: 15px;
+      padding-left: 15px;
       margin-bottom: 0.75em;
     }
-  }
 
-  &__hex,
-  &__rgb,
-  &__hsl {
-    font-size: 0.8em;
+    &__demo {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #d5dbe0;
+      border-radius: 3px;
+      float: left;
+    }
 
-    .kss-colors__info > & {
-      margin: 0;
+    &__info {
+      margin-left: 120px;
+    }
+
+    &__name {
+      color: #2c2f33;
+      font-weight: bold;
+
+      .kss-colors__info > & {
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+    }
+
+    &__hex,
+    &__rgb,
+    &__hsl {
+      font-size: 0.8em;
+
+      .kss-colors__info > & {
+        margin: 0;
+      }
+    }
+
+    &__description {
+      color: #666;
     }
   }
 
-  &__description {
+  .kss-icons {
+    padding: 0;
+    margin: 0;
+    margin-right: -2px;
+    margin-left: -2px;
     color: #666;
+    list-style: none;
   }
-}
 
-.kss-icons {
-  padding: 0;
-  margin: 0;
-  margin-right: -2px;
-  margin-left: -2px;
-  color: #666;
-  list-style: none;
-}
-
-.kss-icons__item {
-  display: inline-block;
-  width: 88px;
-  padding: 10px;
-  margin-right: 2px;
-  margin-bottom: 24px;
-  margin-left: 2px;
-  background: #e3e5e7;
-  border-radius: 3px;
-  text-align: center;
-}
-
-.kss-icons__demo {
-  color: #162a36;
-  font-size: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 4px;
-}
-
-.kss-icons__name {
-  display: block;
-  overflow: hidden;
-  margin-left: 6px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.kss-description {
-  table {
-    margin-top: 24px;
+  .kss-icons__item {
+    display: inline-block;
+    width: 88px;
+    padding: 10px;
+    margin-right: 2px;
     margin-bottom: 24px;
-    background-color: white;
-    color: #363636;
+    margin-left: 2px;
+    background: #e3e5e7;
+    border-radius: 3px;
+    text-align: center;
+  }
 
-    th {
-      border-bottom-width: 1px;
-      color: #363636;
-    }
+  .kss-icons__demo {
+    color: #162a36;
+    font-size: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
 
-    td,
-    th {
-      padding: 0.5em 0.75em;
-      border: 1px solid #dbdbdb;
-      text-align: left;
-      vertical-align: top;
-    }
+  .kss-icons__name {
+    display: block;
+    overflow: hidden;
+    margin-left: 6px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
