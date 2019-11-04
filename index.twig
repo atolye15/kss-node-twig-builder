@@ -241,25 +241,20 @@
         {% if section.markup %}
           <details class="kss-markup kss-style">
             <summary>
-              {% if section.markupFile %}
-                Markup: <code>{{ section.markupFile }}</code>
-              {% else %}
-                Markup
-              {% endif %}
+              Compiled HTML
             </summary>
-            <pre class="hljs"><code class="language-twig">{{ section.markup|hljs('twig')|raw }}</code></pre>
+            <pre class="hljs"><code class="language-twig">{{ section.example|hljs('twig')|raw }}</code></pre>
           </details>
         {% endif %}
         {% if section.example and not section.icons %}
           <details class="kss-markup kss-style">
             <summary>
-              {% if section.markupFile %}
-                Rendered Markup: <code>{{ section.markupFile }}</code>
-              {% else %}
-                Rendered Markup
-              {% endif %}
+              Template
+              {%- if section.markupFile -%}
+                : <code>{{ section.markupFile }}</code>
+              {%- endif -%}
             </summary>
-            <pre class="hljs"><code class="language-twig">{{ section.example|hljs('twig')|raw }}</code></pre>
+            <pre class="hljs"><code class="language-twig">{{ section.markup|hljs('twig')|raw }}</code></pre>
           </details>
         {% endif %}
       {% endif %}
