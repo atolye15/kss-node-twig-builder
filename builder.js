@@ -67,6 +67,16 @@ class KssBuilderTwig extends KssBuilderBaseTwig {
 
     return super.prepareExtend(templateEngine);
   }
+
+  normalizeOptions(keys) {
+    if (this.options.custom) {
+      this.options.custom = Array.from(
+        new Set(this.options.custom.concat(['HideDefault', 'ExampleBgColor', 'Icons'])),
+      );
+    }
+
+    return super.normalizeOptions(keys);
+  }
 }
 
 module.exports = KssBuilderTwig;
