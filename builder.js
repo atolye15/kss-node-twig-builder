@@ -65,6 +65,13 @@ class KssBuilderTwig extends KssBuilderBaseTwig {
   prepareExtend(templateEngine) {
     this.options.extend.push(path.resolve(__dirname, 'extend'));
 
+    // Extend twig functions directly instead of reading from the extend folder
+    if (Array.isArray(this.options.functions)) {
+      this.options.functions.forEach(func => {
+        templateEngine.extendFunction(func.name, func.func);
+      })
+    }
+
     return super.prepareExtend(templateEngine);
   }
 
