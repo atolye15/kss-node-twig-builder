@@ -44,17 +44,17 @@ module.exports = function(Twig) {
         });
 
         iconNames.forEach(item => {
-          var innerContext = Twig.ChildContext(context);
+          var innerContext =  {...context};
           innerContext.icon = {};
           innerContext.icon.name = item;
 
-          output.push(Twig.parse.apply(this, [token.output, innerContext]));
+          output.push(this.parse(token.output, innerContext));
           Twig.merge(context, innerContext, true);
         });
 
         return {
           chain: chain,
-          output: Twig.output.apply(this, [output]),
+          output: output.join(''),
         };
       },
     });
