@@ -827,7 +827,8 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   .kss-icons__name {
     display: block;
     overflow: hidden;
-    margin-left: 6px;
+    margin-left: auto;
+    margin-right: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
